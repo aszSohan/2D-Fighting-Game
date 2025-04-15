@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2D Fighting Game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+      }
+      body {
+        overflow: hidden;
+      }
+      /* PARENT CONTAINER */
+      .parent {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .parent canvas {
+        position: absolute;
+      }
+      .parent > div {
+        position: absolute;
+        height: 100px;
+        width: 1000px;
+        top: 2vh;
+        /* background-color: white; */
+        z-index: 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .Health {
+        width: 45%;
+        height: 70%;
+        background-color: teal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .Health > div {
+        width: 100%;
+        height: 100%;
+        background-color: chartreuse;
+      }
+      #P1Health {
+        align-self: flex-end;
+      }
+      #P2Health {
+        align-self: flex-start;
+      }
+
+      .Timer {
+        width: 10%;
+        height: 100%;
+        background-color: aquamarine;
+        border-radius: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, 0.2);
+      }
+      .Timer > p {
+        font-weight: 700;
+        font-size: 200%;
+      }
+
+      /* GAME OVER CONTAINER */
+      #GameOver {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(0, 81, 151);
+        position: relative;
+        z-index: 2;
+
+        color: rgb(0, 106, 198);
+
+        display: none;
+      }
+
+      #GameOver > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      #GameOver > div > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #GameOver h2 {
+        font-size: 10vw;
+      }
+
+      #GameOver h3,
+      h4 {
+        color: aliceblue;
+        font-size: 2vw;
+      }
+      #GameOver h4 {
+        color: chartreuse;
+        margin-left: 1vw;
+      }
+
+      #GameOver table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #GameOver th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      #GameOver th {
+        background-color: #f2f2f2;
+      }
+
+      #GameOver tr:hover {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div>
+        <div class="Health" style="padding: 10px; padding-right: 0">
+          <div id="P1Health"></div>
+        </div>
+        <div class="Timer"><p id="TimerCount">100</p></div>
+        <div class="Health" style="padding: 10px; padding-left: 0">
+          <div id="P2Health"></div>
+        </div>
+      </div>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="GameOver">
+      <div>
+        <h2>GAME OVER!</h2>
+        <div>
+          <h3>THIS MATCH WINNER</h3>
+          <h4>PLAYER 1</h4>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Player 1 Name</th>
+              <th>Player 2 Name</th>
+              <th>Winner</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Jane</td>
+              <td>Player 1</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>Mike</td>
+              <td>Sarah</td>
+              <td>Player 2</td>
+              <td>12</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="class.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
